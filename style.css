@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+header {
+    width: 100%;
+    height: 89px;
+    gap: 16px;
+    padding-left: 80px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #404EED;
+}
+h1 {
+    font-family: 'New Rocker';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 39px;
+
+    color: #FCFCFC;
+}
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+h4 {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #818181;
+}
+
+img .logo {
+    width: 55px;
+    height: 55px;
+}
+.ilustracao {
+    width: 607px;
+    height: 702px;
+}
+main{
+    display: flex;
+}
+.retangle, .retangle-img {
+    width: 50%;
+    height: 785px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.retangle-img {
+    background-color: #404EED;
+}
+
+nav {
+    width: 405px;
+    height: 710px;
+}
+.conteiner {
+    margin-bottom: 30px;
+    gap: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.bloco-imagem1, .bloco-imagem2, .bloco-imagem3 {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 8px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: #F2F2F2;
+    border: 0.5px solid #C4C4C4;
+    border-radius: 50%;
+}
+.escolhido {
+    border: 0.5px solid #404EED;
+}
+.img-modelo {
+    width: 80px;
+    height: 80px;
+}
+
+input {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin-top: 9px;
+    padding-left: 16px;
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    border-radius: 10px;
+    background: #F2F2F2;
+}
+input .placeholder {
+    color: #818181;
+}
+.botao {
+    width: auto;
+    height: 40px;
+    margin-top: 23px;
+    font-size: 20px;
+    line-height: 23px;
+    border-radius: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+
+    color: #FCFCFC;
+    background-color: #C4C4C4;
+}
+.clicavel {
+    background-color: #404EED;
+}
+
+
+aside {
+    width: auto;
+    height: 342px;
+    background-color: #00D4E6;
+}

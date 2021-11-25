@@ -4,9 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <title>FashionDriven</title>
 </head>
 <body>
-    
+    <header>
+        <img class="logo" src="source/Logo.png">
+        <h1>FashionDriven</h1>
+    </header>
+    <main>
+        <div class="retangle">
+            <nav>
+                <h2>Escolha o modelo</h2>
+                <div class="conteiner">
+                    <div class="bloco-opcao">
+                        <div class="bloco-imagem1" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/tshirt.png"></div>
+                        <h2>T-shirt</h2>
+                    </div>
+                    <div class="bloco-opcao">
+                        <div class="bloco-imagem1" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/Camiseta.png"></div>
+                        <h2>Camiseta</h2>
+                    </div>
+                    <div class="bloco-opcao">
+                        <div class="bloco-imagem1" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/Mangalonga.png"></div>
+                        <h2>Manga longa</h2>
+                    </div>
+                </div>
+                <h2>Escolha a gola</h2>
+                <div class="conteiner">
+                        <div class="bloco-opcao">
+                            <div class="bloco-imagem2" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaV.png"></div>
+                            <h2>Gola V</h2>
+                        </div>
+                        <div class="bloco-opcao">
+                            <div class="bloco-imagem2" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaRedonda.png"></div>
+                            <h2>Gola Redonda</h2>
+                        </div>
+                        <div class="bloco-opcao">
+                            <div class="bloco-imagem2" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaPolo.png"></div>
+                            <h2>Gola polo</h2>
+                        </div>
+                </div>
+                <h2>Escolha o tecido</h2>
+                <div class="conteiner">
+                    <div class="bloco-opcao">
+                        <div class="bloco-imagem3" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Seda.png"></div>
+                        <h2>Seda</h2>
+                    </div>
+                    <div class="bloco-opcao">
+                        <div class="bloco-imagem3" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Algodão.png"></div>
+                        <h2>Algodão</h2>
+                    </div>
+                    <div class="bloco-opcao">
+                        <div class="bloco-imagem3" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Poliester.png"></div>
+                        <h2>Poliéster</h2>
+                    </div>
+                </div>
+                <div class="encomenda">
+                    <h2>Imagem de referência</h2>
+                    <input type="text" placeholder="Insira o link">
+                    <div class="botao">Confirmar pedido</div>
+                </div>
+            </nav>
+        </div>
+        <div class="retangle-img">
+            <img class="ilustracao" src="source/Ilustração@2x.png">
+        </div>
+    </main>
+    <aside></aside>
+
+    <script src="script.js"></script>
 </body>
 </html>
