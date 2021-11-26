@@ -20,53 +20,53 @@
     <main>
         <div class="retangle">
             <nav>
-                <h2>Escolha o modelo</h2>
+                <h3>Escolha o modelo</h3>
                 <div class="conteiner">
                     <div class="bloco-opcao">
-                        <div class="bloco-imagem1" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/tshirt.png"></div>
-                        <h2>T-shirt</h2>
+                        <div class="bloco-imagem1 t-shirt" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/tshirt.png"></div>
+                        <h3>T-shirt</h3>
                     </div>
                     <div class="bloco-opcao">
-                        <div class="bloco-imagem1" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/Camiseta.png"></div>
-                        <h2>Camiseta</h2>
+                        <div class="bloco-imagem1 top-tank" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/Camiseta.png"></div>
+                        <h3>Camiseta</h3>
                     </div>
                     <div class="bloco-opcao">
-                        <div class="bloco-imagem1" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/Mangalonga.png"></div>
-                        <h2>Manga longa</h2>
+                        <div class="bloco-imagem1 long" onclick="EscolherModelo(this)"><img class="img-modelo" src="source/Mangalonga.png"></div>
+                        <h3>Manga longa</h3>
                     </div>
                 </div>
-                <h2>Escolha a gola</h2>
+                <h3>Escolha a gola</h3>
                 <div class="conteiner">
                         <div class="bloco-opcao">
-                            <div class="bloco-imagem2" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaV.png"></div>
-                            <h2>Gola V</h2>
+                            <div class="bloco-imagem2 v-neck" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaV.png"></div>
+                            <h3>Gola V</h3>
                         </div>
                         <div class="bloco-opcao">
-                            <div class="bloco-imagem2" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaRedonda.png"></div>
-                            <h2>Gola Redonda</h2>
+                            <div class="bloco-imagem2 round" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaRedonda.png"></div>
+                            <h3>Gola Redonda</h3>
                         </div>
                         <div class="bloco-opcao">
-                            <div class="bloco-imagem2" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaPolo.png"></div>
-                            <h2>Gola polo</h2>
+                            <div class="bloco-imagem2 polo" onclick="EscolherGola(this)"><img class="img-gola" src="source/GolaPolo.png"></div>
+                            <h3>Gola polo</h3>
                         </div>
                 </div>
-                <h2>Escolha o tecido</h2>
+                <h3>Escolha o tecido</h3>
                 <div class="conteiner">
                     <div class="bloco-opcao">
-                        <div class="bloco-imagem3" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Seda.png"></div>
-                        <h2>Seda</h2>
+                        <div class="bloco-imagem3 silk" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Seda.png"></div>
+                        <h3>Seda</h3>
                     </div>
                     <div class="bloco-opcao">
-                        <div class="bloco-imagem3" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Algodão.png"></div>
-                        <h2>Algodão</h2>
+                        <div class="bloco-imagem3 cotton" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Algodão.png"></div>
+                        <h3>Algodão</h3>
                     </div>
                     <div class="bloco-opcao">
-                        <div class="bloco-imagem3" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Poliester.png"></div>
-                        <h2>Poliéster</h2>
+                        <div class="bloco-imagem3 polyester" onclick="EscolherTecido(this)"><img class="img-tecido" src="source/Poliester.png"></div>
+                        <h3>Poliéster</h3>
                     </div>
                 </div>
                 <div class="encomenda">
-                    <h2>Imagem de referência</h2>
+                    <h3>Imagem de referência</h3>
                     <input type="text" placeholder="Insira o link">
                     <div class="botao">Confirmar pedido</div>
                 </div>
@@ -76,8 +76,12 @@
             <img class="ilustracao" src="source/Ilustração@2x.png">
         </div>
     </main>
-    <aside></aside>
+    <aside>
+        <h2>Ultimos pedidos</h2>
+        <div class="conteiner-de-pedidos"></div>
+    </aside>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

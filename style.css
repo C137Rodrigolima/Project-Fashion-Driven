@@ -22,14 +22,17 @@ h1 {
     color: #FCFCFC;
 }
 h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 15px;
+
+    color: #232323;
 }
 h3 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -43,6 +46,19 @@ h4 {
     line-height: 16px;
 
     color: #818181;
+}
+h5{
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #232323;
+}
+.img-pedido {
+    width: 180px;
+    height: 180px;
 }
 
 img .logo {
@@ -80,6 +96,31 @@ nav {
     justify-content: center;
     
 }
+.conteiner-de-pedidos {
+    margin-bottom: 30px;
+    width: 1045px;
+    height: 235px;
+
+    display: flex;
+    gap: 16px;
+    overflow-x: scroll;
+}
+.bloco-pedido {
+    width: 200px;
+    height: 235px;
+    padding-top: 16px;
+    padding-right: 10px;
+    padding-left: 10px;
+    gap: 8px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    background: #FFFFFF;
+}
 .bloco-imagem1, .bloco-imagem2, .bloco-imagem3 {
     width: 100px;
     height: 100px;
@@ -97,6 +138,7 @@ nav {
 .escolhido {
     border: 0.5px solid #404EED;
 }
+
 .img-modelo {
     width: 80px;
     height: 80px;
@@ -149,5 +191,8 @@ input .placeholder {
 aside {
     width: auto;
     height: 342px;
-    background-color: #00D4E6;
+    padding-top: 30px;
+    padding-left: 125px;
+
+    background-color: #F2F2F2;
 }
