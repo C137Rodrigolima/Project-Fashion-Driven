@@ -39,15 +39,18 @@ h3 {
     line-height: 21px;
 }
 h4 {
+    width: 180px;
     font-family: "Roboto";
     font-style: normal;
     font-weight: normal;
+    word-wrap: break-word;
     font-size: 14px;
     line-height: 16px;
 
     color: #818181;
 }
 h5{
+
     font-family: "Roboto";
     font-style: normal;
     font-weight: bold;
@@ -102,7 +105,7 @@ nav {
 }
 .conteiner-de-pedidos {
     width: 1045px;
-    height: 255px;
+    height: auto;
 
     display: flex;
     gap: 15px;
@@ -110,7 +113,7 @@ nav {
 }
 .bloco-pedido {
     width: 200px;
-    height: 235px;
+    height: auto;
     padding-top: 16px;
     padding-right: 10px;
     padding-left: 10px;
@@ -119,7 +122,6 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 
     border-radius: 10px;
     background: #FFFFFF;
@@ -199,9 +201,10 @@ input .placeholder {
 
 aside {
     width: auto;
-    height: 342px;
+    height: auto;
     padding-top: 30px;
     padding-left: 125px;
+    padding-bottom: 30px;
 
     background-color: #F2F2F2;
 }
