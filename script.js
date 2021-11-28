@@ -8,14 +8,15 @@ Promessa.then(ColocarUltimosPedidos);
 }
 ChamarServidor();
 
-
 function ColocarUltimosPedidos(resposta) {
     let UltimosPedidos = resposta.data;
     const ConteinerdeUltimosPedidos = document.querySelector(".conteiner-de-pedidos");
 
     for(let i=0; i<UltimosPedidos.length; i++){
         ConteinerdeUltimosPedidos.innerHTML += `
-        <div class="bloco-pedido" onclick="RequerirConfirmação(${i})"><img class="img-pedido" src=${UltimosPedidos[i].image}><h4><span>Criador: </span>${UltimosPedidos[i].owner}</h4><div>
+        <div class="bloco-pedido" onclick="RequerirConfirmação(${i})">
+        <img class="img-pedido" src=${UltimosPedidos[i].image}><h4>
+        <span>Criador: </span>${UltimosPedidos[i].owner}</h4><div>
         `;
     }
 }
@@ -50,6 +51,7 @@ function EscolherModelo(blococlicadoagora) {
     }
     blococlicadoagora.classList.add('escolhido');
     NumerodeSeleções++;
+    ObjetoEncomendaRecente = undefined;
 
     if(blococlicadoagora.classList.contains("t-shirt")){
         modelo = "t-shirt";
@@ -69,6 +71,7 @@ function EscolherGola(blococlicadoagora) {
     }
     blococlicadoagora.classList.add('escolhido');
     NumerodeSeleções++;
+    ObjetoEncomendaRecente = undefined;
 
     if(blococlicadoagora.classList.contains("v-neck")){
         pescoço = "v-neck";
@@ -88,6 +91,7 @@ function EscolherTecido(blococlicadoagora) {
     }
     blococlicadoagora.classList.add('escolhido');
     NumerodeSeleções++;
+    ObjetoEncomendaRecente = undefined;
 
     if(blococlicadoagora.classList.contains("silk")){
         tipoMaterial = "silk";
@@ -115,15 +119,11 @@ function ValidarEncomenda() {
     }
 }
 
-function ChecaImagem(testarurlink) {
-    return (testarurlink.match(/\.(jpeg|jpg|gif|tiff|png)$/) !== null);
-}
-
 function ProcessarEncomenda() {
     alert("Sua encomenda está sendo Processada.");
-
+    
     if(ObjetoEncomendaRecente !== undefined){
-        const PromessaEnvio = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', ObjetoEncomendaRecente);
+        let PromessaEnvio = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', ObjetoEncomendaRecente);
         PromessaEnvio.then(ConfirmarEncomenda);
         PromessaEnvio.catch(TratarErro);
     } else {
@@ -135,11 +135,11 @@ function ProcessarEncomenda() {
             owner: nome,
             author: nome
         }
-        const PromessaEnvio = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', Objeto);
+        let PromessaEnvio = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', Objeto);
         PromessaEnvio.then(ConfirmarEncomenda);
         PromessaEnvio.catch(TratarErro);
     }
-
+    
     function TratarErro(Erro){
         alert("Ops, não conseguimos processar sua encomenda");
     }
@@ -149,4 +149,8 @@ function ProcessarEncomenda() {
         ConteinerdeUltimosPedidos.innerHTML = "";
         ChamarServidor();
     }
+}
+
+function ChecaImagem(testarurlink) {
+    return (testarurlink.match(/\.(jpeg|jpg|gif|tiff|png)$/) !== null);
 }
