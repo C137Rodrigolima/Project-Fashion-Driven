@@ -56,6 +56,10 @@ h5{
 
     color: #232323;
 }
+span {
+    font-weight: bold;
+    color: #232323;
+}
 .img-pedido {
     width: 180px;
     height: 180px;
@@ -97,12 +101,11 @@ nav {
     
 }
 .conteiner-de-pedidos {
-    margin-bottom: 30px;
     width: 1045px;
-    height: 235px;
+    height: 255px;
 
     display: flex;
-    gap: 16px;
+    gap: 15px;
     overflow-x: scroll;
 }
 .bloco-pedido {
@@ -120,6 +123,12 @@ nav {
 
     border-radius: 10px;
     background: #FFFFFF;
+}
+.bloco-opcao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .bloco-imagem1, .bloco-imagem2, .bloco-imagem3 {
     width: 100px;
