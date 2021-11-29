@@ -37,8 +37,8 @@ function EncomendarPedidoRecentes(Resposta){
         neck: itens[IndiceEncomendaRecente].neck,
         material: itens[IndiceEncomendaRecente].material,
         image: itens[IndiceEncomendaRecente].image,
-        owner: itens[IndiceEncomendaRecente].owner,
-        author: itens[IndiceEncomendaRecente].owner
+        owner: nome,
+        author: nome
     }
 }
 
@@ -84,7 +84,7 @@ function EscolherGola(blococlicadoagora) {
 
 function EscolherTecido(blococlicadoagora) {
     const BlocoJaSelecionado = document.querySelector('.bloco-imagem3.escolhido');
-    
+
     if (BlocoJaSelecionado !== null){
         BlocoJaSelecionado.classList.remove('escolhido');
         NumerodeSeleções--;
