@@ -2,35 +2,35 @@ let nome = prompt("Qual seu nome?");
 let model, neck, material, image, owner, author, IndiceEncomendaRecente, ObjetoEncomendaRecente;
 let NumerodeSeleções = 0;
 
-function ChamarServidor() {
+function chamarServidor() {
 let Promessa = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
-Promessa.then(ColocarUltimosPedidos);
+Promessa.then(colocarUltimosPedidos);
 }
-ChamarServidor();
+chamarServidor();
 
-function ColocarUltimosPedidos(resposta) {
+function colocarUltimosPedidos(resposta) {
     let UltimosPedidos = resposta.data;
     const ConteinerdeUltimosPedidos = document.querySelector(".conteiner-de-pedidos");
 
     for(let i=0; i<UltimosPedidos.length; i++){
         ConteinerdeUltimosPedidos.innerHTML += `
-        <div class="bloco-pedido" onclick="RequerirConfirmação(${i})">
+        <div class="bloco-pedido" onclick="requerirConfirmação(${i})">
         <img class="img-pedido" src=${UltimosPedidos[i].image}><h4>
         <span>Criador: </span>${UltimosPedidos[i].owner}</h4><div>
         `;
     }
 }
 
-function RequerirConfirmação(numerorecebido) {
+function requerirConfirmação(numerorecebido) {
     let ConfirmacaoEncomenda = window.confirm("Confirma o pedido de uma encomenda via Últimos Pedidos?");
     IndiceEncomendaRecente = numerorecebido;
 
     if (ConfirmacaoEncomenda){        
         let PromessaEncomendaRecente = axios.get('https://mock-api.driven.com.br/api/v4/shirts-api/shirts');
-        PromessaEncomendaRecente.then(EncomendarPedidoRecentes);
+        PromessaEncomendaRecente.then(encomendarPedidoRecentes);
     }
 }
-function EncomendarPedidoRecentes(Resposta){
+function encomendarPedidoRecentes(Resposta){
     const itens = Resposta.data;
     ObjetoEncomendaRecente = {
         model: itens[IndiceEncomendaRecente].model,
@@ -42,17 +42,22 @@ function EncomendarPedidoRecentes(Resposta){
     }
 }
 
-function EscolherModelo(blococlicadoagora) {
-    const BlocoJaSelecionado = document.querySelector('.bloco-imagem1.escolhido');
+function escolherOpcaoBlusa(blococlicadoagora) {
+    let pai = blococlicadoagora.parentNode.parentNode;
+    let Filhos = pai.querySelector(".bloco-imagem.escolhido");
 
-    if (BlocoJaSelecionado !== null){
-        BlocoJaSelecionado.classList.remove('escolhido');
+    if (Filhos !== null){
+        Filhos.classList.remove('escolhido');
         NumerodeSeleções--;
     }
     blococlicadoagora.classList.add('escolhido');
     NumerodeSeleções++;
     ObjetoEncomendaRecente = undefined;
 
+    selecionarNome(blococlicadoagora);
+}
+
+function selecionarNome(blococlicadoagora){
     if(blococlicadoagora.classList.contains("t-shirt")){
         modelo = "t-shirt";
     } else if(blococlicadoagora.classList.contains("top-tank")){
@@ -60,19 +65,6 @@ function EscolherModelo(blococlicadoagora) {
     } else if(blococlicadoagora.classList.contains("long")){
         modelo = "long";
     }
-}
-
-function EscolherGola(blococlicadoagora) {
-    const BlocoJaSelecionado = document.querySelector('.bloco-imagem2.escolhido');
-
-    if (BlocoJaSelecionado !== null){
-        BlocoJaSelecionado.classList.remove('escolhido');
-        NumerodeSeleções--;
-    }
-    blococlicadoagora.classList.add('escolhido');
-    NumerodeSeleções++;
-    ObjetoEncomendaRecente = undefined;
-
     if(blococlicadoagora.classList.contains("v-neck")){
         pescoço = "v-neck";
     } else if(blococlicadoagora.classList.contains("round")){
@@ -80,19 +72,6 @@ function EscolherGola(blococlicadoagora) {
     } else if(blococlicadoagora.classList.contains("polo")){
         pescoço = "polo";
     }
-}
-
-function EscolherTecido(blococlicadoagora) {
-    const BlocoJaSelecionado = document.querySelector('.bloco-imagem3.escolhido');
-
-    if (BlocoJaSelecionado !== null){
-        BlocoJaSelecionado.classList.remove('escolhido');
-        NumerodeSeleções--;
-    }
-    blococlicadoagora.classList.add('escolhido');
-    NumerodeSeleções++;
-    ObjetoEncomendaRecente = undefined;
-
     if(blococlicadoagora.classList.contains("silk")){
         tipoMaterial = "silk";
     } else if(blococlicadoagora.classList.contains("cotton")){
@@ -102,30 +81,30 @@ function EscolherTecido(blococlicadoagora) {
     }
 }
 
-setInterval(ValidarEncomenda, 2000);
+setInterval(validarEncomenda, 2000);
 
-function ValidarEncomenda() {
+function validarEncomenda() {
     const botao = document.querySelector('.botao');
     let input = document.querySelector("input");
     let InputUrlImagem = input.value;
 
-    if((NumerodeSeleções===3 && ChecaImagem(InputUrlImagem)) || ObjetoEncomendaRecente !== undefined){
+    if((NumerodeSeleções===3 && checaImagem(InputUrlImagem)) || ObjetoEncomendaRecente !== undefined){
         botao.classList.add('clicavel');
-        botao.addEventListener('click', ProcessarEncomenda);
+        botao.addEventListener('click', processarEncomenda);
         Imagem = InputUrlImagem;
     } else {
         botao.classList.remove('clicavel');
-        botao.removeEventListener('click', ProcessarEncomenda);
+        botao.removeEventListener('click', processarEncomenda);
     }
 }
 
-function ProcessarEncomenda() {
+function processarEncomenda() {
     alert("Sua encomenda está sendo Processada.");
     
     if(ObjetoEncomendaRecente !== undefined){
         let PromessaEnvio = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', ObjetoEncomendaRecente);
-        PromessaEnvio.then(ConfirmarEncomenda);
-        PromessaEnvio.catch(TratarErro);
+        PromessaEnvio.then(confirmarEncomenda);
+        PromessaEnvio.catch(tratarErro);
     } else {
         Objeto = {
             model: modelo,
@@ -136,21 +115,21 @@ function ProcessarEncomenda() {
             author: nome
         }
         let PromessaEnvio = axios.post('https://mock-api.driven.com.br/api/v4/shirts-api/shirts', Objeto);
-        PromessaEnvio.then(ConfirmarEncomenda);
-        PromessaEnvio.catch(TratarErro);
+        PromessaEnvio.then(confirmarEncomenda);
+        PromessaEnvio.catch(tratarErro);
     }
     
-    function TratarErro(Erro){
+    function tratarErro(Erro){
         alert("Ops, não conseguimos processar sua encomenda");
     }
-    function ConfirmarEncomenda(resposta) {
+    function confirmarEncomenda(resposta) {
         alert("Obrigado! Sua encomenda foi Confirmada!!!");
         const ConteinerdeUltimosPedidos = document.querySelector(".conteiner-de-pedidos");
         ConteinerdeUltimosPedidos.innerHTML = "";
-        ChamarServidor();
+        chamarServidor();
     }
 }
 
-function ChecaImagem(testarurlink) {
+function checaImagem(testarurlink) {
     return (testarurlink.match(/\.(jpeg|jpg|gif|tiff|png)$/) !== null);
 }

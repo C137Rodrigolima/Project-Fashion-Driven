@@ -132,7 +132,7 @@ nav {
     align-items: center;
     justify-content: center;
 }
-.bloco-imagem1, .bloco-imagem2, .bloco-imagem3 {
+.bloco-imagem {
     width: 100px;
     height: 100px;
     padding: 10px;
